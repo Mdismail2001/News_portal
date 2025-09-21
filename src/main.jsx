@@ -6,12 +6,12 @@ import App from './App.jsx'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Root from './components/Layout/Root.jsx';
+import Home from './components/Layout/Home.jsx';
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    Component: Root,
-  },
+  { path: "/", Component: Home},
+  // { path:'/auth', }
+
 ]);
 
 
