@@ -19,3 +19,8 @@
 *{
 font-family: "Poppins", sans-serif;
 }
+
+/* active button bg  */
+a.active{
+  @apply bg-base-300;
+}
