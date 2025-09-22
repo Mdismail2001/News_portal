@@ -12,6 +12,7 @@ import CategoryNews from './components/Pages/CategoryNews.jsx';
 import AuthLayout from './components/authLayout/AuthLayout.jsx';
 import Login from './components/authLayout/Login.jsx';
 import Register from './components/authLayout/Register.jsx';
+import AuthProvider from './provider/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   { path: "/", Component: Home,
@@ -37,7 +38,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}> 
-    </RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </StrictMode>,
 )
