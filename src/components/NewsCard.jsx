@@ -5,7 +5,7 @@ const NewsCard = ({ news }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="card bg-base-100 shadow-xl rounded-xl overflow-hidden">
+    <div className="card bg-base-100 shadow-xl rounded-xl overflow-hidden my-5">
       {/* Author Section */}
       <div className="flex items-center justify-between p-4 border-b">
         <div className="flex items-center gap-3 bg-base-200">
