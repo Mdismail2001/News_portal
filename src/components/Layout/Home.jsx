@@ -13,7 +13,7 @@ const Home = () => {
                 <section className='w-11/12 mx-auto mt-5'><LatesNews></LatesNews></section>
                 <nav className='w-11/12 mx-auto mt-5'><Navbar></Navbar></nav>
             </header>
-            <main className='w-11/12 mx-auto my-3 grid grid-cols-12'>
+            <main className='w-11/12 mx-auto my-3 grid grid-cols-12 gap-5'>
                 <aside className='col-span-3'>
                     <LeftAside></LeftAside>
                 </aside>
