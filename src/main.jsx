@@ -14,7 +14,9 @@ const router = createBrowserRouter([
   { path: "/", Component: Home,
     children:[
       {path:"", Component:HomeChild },
-      {path:"/category/:id", Component: CategoryNews}
+      {path:"/category/:id", Component: CategoryNews,
+        loader: ()=> fetch('/public/demo-data/news.json')
+      }
     ]
 
   },
