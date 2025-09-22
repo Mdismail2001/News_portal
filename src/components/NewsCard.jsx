@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaEye, FaStar, FaBookmark, FaShareAlt } from "react-icons/fa";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
   const [expanded, setExpanded] = useState(false);
@@ -65,12 +66,7 @@ const NewsCard = ({ news }) => {
 
         {/* Read More / Read Less */}
         {news.details.length > 150 && (
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="text-blue-600 hover:underline text-sm mt-1"
-          >
-            {expanded ? "Read Less" : "Read More"}
-          </button>
+          <Link to ={`news-details/${news.id}`} className="font-semibold">Read More...</Link>
         )}
 
         {/* Tags */}

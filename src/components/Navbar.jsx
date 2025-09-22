@@ -3,8 +3,20 @@ import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
+        const {user, logOut} = use(AuthContext)  // user from authProvider bya authContext
 
-        const {user} = use(AuthContext)
+        // function for log out 
+        const handleLogOut = ()=>{
+            // console.log("user trying to log out")
+            logOut()
+            .then(()=>{
+                alert("LogOut successfully")
+            })
+            .catch(error =>{
+                alert(error.message)
+            })
+        }
+
     return (
         <div className='flex justify-between items-center'>
             <div>{user && user.email}</div>
@@ -15,7 +27,9 @@ const Navbar = () => {
             </div>
             <div className='flex gap-5'>
                 <img src="/src/assets/user.png" alt="" />
-                <Link to ="/auth/login" className=' btn btn-primary px-10'>Login</Link>
+                {
+                    user ?<button onClick={handleLogOut} className=' btn btn-primary px-10'>LogOut</button> :<Link to ="/auth/login" className=' btn btn-primary px-10'>Login</Link> 
+                }
             </div>
         </div>
     );
