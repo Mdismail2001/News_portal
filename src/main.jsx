@@ -9,6 +9,9 @@ import Root from './components/Layout/Root.jsx';
 import Home from './components/Layout/Home.jsx';
 import HomeChild from './components/Pages/HomeChild.jsx';
 import CategoryNews from './components/Pages/CategoryNews.jsx';
+import AuthLayout from './components/authLayout/AuthLayout.jsx';
+import Login from './components/authLayout/Login.jsx';
+import Register from './components/authLayout/Register.jsx';
 
 const router = createBrowserRouter([
   { path: "/", Component: Home,
@@ -20,6 +23,14 @@ const router = createBrowserRouter([
     ]
 
   },
+  {
+    path:"/auth",
+    Component:AuthLayout,
+    children:[
+      {path:'/auth/login', Component:Login},
+      {path:'/auth/register', Component:Register},
+    ]
+  }
 
 ]);
 
