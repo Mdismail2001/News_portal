@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaEye, FaStar, FaBookmark, FaShareAlt } from "react-icons/fa";
 import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
   const [expanded, setExpanded] = useState(false);
+  // console.log(news.id)
 
   return (
     <div className="card bg-base-100 shadow-xl rounded-xl overflow-hidden my-5">
@@ -66,7 +67,7 @@ const NewsCard = ({ news }) => {
 
         {/* Read More / Read Less */}
         {news.details.length > 150 && (
-          <Link to ={`news-details/${news.id}`} className="font-semibold">Read More...</Link>
+          <Link to ={`/news-details/${news.id}`} className="font-semibold">Read More...</Link>
         )}
 
         {/* Tags */}

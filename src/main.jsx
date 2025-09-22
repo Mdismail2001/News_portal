@@ -13,6 +13,7 @@ import AuthLayout from './components/authLayout/AuthLayout.jsx';
 import Login from './components/authLayout/Login.jsx';
 import Register from './components/authLayout/Register.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
+import NewsDetails from './components/Pages/NewsDetails.jsx';
 
 const router = createBrowserRouter([
   { path: "/", Component: Home,
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
       {path:'/auth/login', Component:Login},
       {path:'/auth/register', Component:Register},
     ]
+  },
+  {
+    path:"/news-details/:id",
+    Component:NewsDetails,
+    loader:()=> fetch('/public/demo-data/news.json')
   }
 
 ]);
