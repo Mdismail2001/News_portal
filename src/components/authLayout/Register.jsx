@@ -1,9 +1,10 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
     const {createUser, setUser, updateUser} = use(AuthContext)  // createUser come from authProvider bya authContext
+    const navigate = useNavigate();
 
     const handleRegister =(e)=>{
         e.preventDefault();
@@ -12,13 +13,14 @@ const Register = () => {
         const email = e.target.email.value
         const password = e.target.password.value
 
-        console.log(name,photo,email,password)
+        // console.log(name,photo,email,password)
         createUser(email, password)      // call and pass value
         .then(result =>{
             setUser(result.user);
             updateUser({displayName: name, photoURL: photo })
             .then(user =>{
                 // console.log(user)
+                navigate("/");
             })
             .catch(error =>{
                 console.log(error) 

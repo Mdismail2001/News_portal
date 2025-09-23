@@ -5,9 +5,10 @@ import NewsCard from '../NewsCard';
 const CategoryNews = () => {
    const {id}= useParams();
    const news = useLoaderData();
+   
    const [categoryNews, setCategoryNews ] = useState([]);
 
-//    console.log(id, news);
+//    console.log( news);
 // filter for found id based news using useEffect
     useEffect(()=>{
         // conditional news showing

@@ -15,17 +15,27 @@ import Register from './components/authLayout/Register.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
 import PrivateRoute from './provider/PrivateRoute.jsx';
 import NewsDetails from './components/Pages/NewsDetails.jsx';
+import Loading from './components/Pages/Loading.jsx';
 
 const router = createBrowserRouter([
-  { path: "/", Component: Home,
-    children:[
-      {path:"", Component:HomeChild },
-      {path:"/category/:id", Component: CategoryNews,
-        loader: ()=> fetch('/public/demo-data/news.json')
-      }
-    ]
-
-  },
+{
+  path: "/",
+  Component: Home,
+  loader: () => fetch('/public/demo-data/news.json'), 
+  hydrateFallbackElement: <Loading />,
+  children: [
+    {
+      path: "",
+      Component: HomeChild
+    },
+    {
+      path: "category/:id", 
+      Component: CategoryNews,
+      loader: () => fetch('/public/demo-data/news.json'), 
+      hydrateFallbackElement: <Loading />
+    }
+  ]
+},
   {
     path:"/auth",
     Component:AuthLayout,
@@ -41,7 +51,8 @@ const router = createBrowserRouter([
       <NewsDetails />
     </PrivateRoute>
   ),
-  loader: () => fetch('/public/demo-data/news.json')
+  loader: () => fetch('/public/demo-data/news.json'),
+  hydrateFallbackElement:<Loading></Loading>
 }
 
 ]);
