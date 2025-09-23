@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
 import app from '../firebase/Firebase.config';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 
 const auth = getAuth(app);// (app) come from firebase.config file (getAuth) from firebase
 export const AuthContext = createContext(); // create context 
 
 const AuthProvider = ({children}) => {
     const [user,  setUser] = useState(null);
-    // console.log(user)
+    const [loading, setLoading] = useState(true);   // for user loading
+    // console.log( loading ,user)
     // register function
     const createUser =(email, password)=>{
         // console.log(email,password)
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     };
 
     // user observer function for takeing current user 
     useEffect(()=>{
     const unsubscribe =  onAuthStateChanged(auth,(currentUser) =>{
+            // console.log(currentUser);
             setUser(currentUser);
+            setLoading(false);   // for user loading
         });
         return()=>{
             unsubscribe();
@@ -27,7 +31,13 @@ const AuthProvider = ({children}) => {
 
     // log in function
     const logIn = (email, password)=>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
+    }
+
+    // update user function
+    const updateUser =(updateData)=>{
+        return updateProfile(auth.currentUser, updateData)
     }
 
     // log out function 
@@ -40,7 +50,10 @@ const AuthProvider = ({children}) => {
         setUser,
         createUser,  // pass to register page for signin
         logOut,       // pass to navbar page for logout
-        logIn          // pass to login page for login
+        logIn ,         // pass to login page for login
+        loading,
+        setLoading,
+        updateUser   // pass to register page for update user
     }
     return <AuthContext value={authData}>
         {children}

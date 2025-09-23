@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
-    const {createUser, setUser} = use(AuthContext)  // createUser come from authProvider bya authContext
+    const {createUser, setUser, updateUser} = use(AuthContext)  // createUser come from authProvider bya authContext
 
     const handleRegister =(e)=>{
         e.preventDefault();
@@ -12,11 +12,18 @@ const Register = () => {
         const email = e.target.email.value
         const password = e.target.password.value
 
-        // console.log(name,photo,email,password)
+        console.log(name,photo,email,password)
         createUser(email, password)      // call and pass value
         .then(result =>{
-            const user = (result.user);
-            setUser(user) //pass user
+            setUser(result.user);
+            updateUser({displayName: name, photoURL: photo })
+            .then(user =>{
+                // console.log(user)
+            })
+            .catch(error =>{
+                console.log(error) 
+            })
+            
             // console.log(result.user);
         })
         .catch(error => {
