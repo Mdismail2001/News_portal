@@ -16,6 +16,7 @@ import AuthProvider from './provider/AuthProvider.jsx';
 import PrivateRoute from './provider/PrivateRoute.jsx';
 import NewsDetails from './components/Pages/NewsDetails.jsx';
 import Loading from './components/Pages/Loading.jsx';
+import AboutUs from './components/Pages/AboutUs.jsx';
 
 const router = createBrowserRouter([
 {
@@ -42,6 +43,7 @@ const router = createBrowserRouter([
     children:[
       {path:'/auth/login', Component:Login},
       {path:'/auth/register', Component:Register},
+      {path:'/auth/about', Component:AboutUs}
     ]
   },
 {

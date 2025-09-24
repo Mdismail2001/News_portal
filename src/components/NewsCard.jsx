@@ -81,13 +81,16 @@ const NewsCard = ({ news }) => {
 
         {/* Footer */}
         <div className="flex justify-between items-center mt-4 pt-2 border-t">
-          <div className="flex items-center gap-2 text-yellow-500">
-            <FaStar />
-            <span>{news.rating?.number}</span>
+          {/* Rating */}
+          <div className="flex items-center gap-1 text-yellow-500">
+            <FaStar className="text-sm" />
+            <span className="text-lg">{news.rating?.number}</span>
           </div>
+
+          {/* Views */}
           <div className="flex items-center gap-2 text-gray-500">
-            <FaEye />
-            <span>{news.total_view}</span>
+            <FaEye className="text-lg" />
+            <span className="text-sm">{news.total_view}</span>
           </div>
         </div>
       </div>

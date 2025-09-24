@@ -6,7 +6,7 @@ import QZone from './QZone';
 const RightAside = () => {
     return (
         <div>
-            <SocialLogin></SocialLogin>
+            {/* <SocialLogin></SocialLogin> */}
             <FindUs></FindUs>
             <QZone></QZone>
         </div>
