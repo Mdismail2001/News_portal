@@ -78,7 +78,7 @@ const AboutUs = () => {
           Stay updated with the latest news, insights, and exclusive stories.  
           Be part of our growing community today.
         </p>
-        <button className="btn btn-primary px-6 py-3 text-white rounded-lg shadow-md hover:bg-blue-700 transition">
+        <button className="btn btn-primary px-6 py-3 text-white rounded-lg shadow-md hover:bg-black transition">
           Contact Us
         </button>
       </section>

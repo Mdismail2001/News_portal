@@ -32,8 +32,13 @@ const Navbar = () => {
   {/* Center: Nav links */}
   <div className="w-1/3 flex justify-center gap-5 text-accent">
     <NavLink className="hover:text-black font-semibold" to="/">Home</NavLink>
+    { user ? (<>    
     <NavLink className="hover:text-black font-semibold" to="/auth/about">About</NavLink>
-    <NavLink className="hover:text-black font-semibold" to="/career">Career</NavLink>
+    <NavLink className="hover:text-black font-semibold" to="/auth/career">Career</NavLink>
+    </>):(<>
+    <NavLink className="hover:text-black font-semibold" to="/auth/login">About</NavLink>
+    <NavLink className="hover:text-black font-semibold" to="/auth/login">Career</NavLink>
+    </> )}
   </div>
 
   {/* Right: User info + buttons */}
