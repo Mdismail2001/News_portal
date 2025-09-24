@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import UserProfilePopup from './UserProfilePopup';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);  
   const [logout, setLogout] = useState('');
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
 
   const handleLogOut = () => {
     logOut()
@@ -43,8 +46,8 @@ const Navbar = () => {
 
   {/* Right: User info + buttons */}
   <div className="w-1/3 flex justify-end gap-5">
-    <p className="font-semibold mt-2">{user && user.email}</p>
     <img
+      onClick={() => setIsPopupOpen(true)}
       className="w-10 h-10 rounded-full"
       src={
         user?.photoURL ||
@@ -62,6 +65,22 @@ const Navbar = () => {
       </Link>
     )}
   </div>
+
+  {/*  Popup modal */}
+
+      <UserProfilePopup
+        user={{
+          name: user?.displayName,
+          email: user?.email,
+          photo: user?.photoURL,
+          role: "Member",       // placeholder (replace with real role if available)
+          joined: "Sep 2025",   // placeholder (replace with real joined date if available)
+        }}
+        isOpen={isPopupOpen}
+        onClose={() => setIsPopupOpen(false)}
+        onLogout={handleLogOut}
+      />
+
 </div>
   );
 };
