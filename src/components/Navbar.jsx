@@ -45,27 +45,30 @@ const Navbar = () => {
   </div>
 
   {/* Right: User info + buttons */}
-  <div className="w-1/3 flex justify-end gap-5">
+<div className="w-1/3 flex justify-end gap-5">
+  {/* Avatar + label grouped in a column */}
+  <div
+    className="flex flex-col items-center cursor-pointer "
+    onClick={() => setIsPopupOpen(true)}
+  >
     <img
-      onClick={() => setIsPopupOpen(true)}
-      className="w-10 h-10 rounded-full"
+      className="w-15 h-15 rounded-full"
       src={
         user?.photoURL ||
         "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
       }
-      alt=""
+      alt="Profile"
     />
-    {user ? (
-      <button onClick={handleLogOut} className="btn btn-primary px-10">
-        LogOut
-      </button>
-    ) : (
-      <Link to="/auth/login" className="btn btn-primary px-10">
-        Login
-      </Link>
-    )}
+    {user? <p className="text-sm mt-1">Profile</p> : ""}
   </div>
 
+  {/* Show login button if no user */}
+  {!user && (
+    <Link to="/auth/login" className="btn btn-primary px-10">
+      Login
+    </Link>
+  )}
+</div>
   {/*  Popup modal */}
 
       <UserProfilePopup

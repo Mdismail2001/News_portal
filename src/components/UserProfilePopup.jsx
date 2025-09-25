@@ -8,7 +8,7 @@ export default function UserProfilePopup({ user, isOpen, onClose, onLogout }) {
           
           {/* 🔥 Logout button top-right */}
           <button
-            className="absolute top-4 right-4 px-3 py-1 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700"
+            className="absolute top-4 right-4 px-3 py-1 btn btn-secondary text-white text-sm rounded-lg hover:bg-red-700"
             onClick={() => {
               onLogout();
               onClose(); // Close popup after logout
