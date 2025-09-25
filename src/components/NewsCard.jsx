@@ -102,7 +102,7 @@ const NewsCard = ({ news }) => {
         {news.details.length > 150 && (
           <Link
             to={`/news-details/${news.id}`}
-            className="font-semibold text-blue-600 hover:underline"
+            className="font-semibold text-black hover:underline"
           >
             Read More...
           </Link>
