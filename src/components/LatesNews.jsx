@@ -6,9 +6,9 @@ const LatesNews = ({news}) => {
     // console.log( allDetails);
     return (
         <div className='flex gap-5 items-center bg-base-200 p-3'>
-            <p className='text-base-100 bg-secondary px-3 py-3 rounded-2xl '>Latest</p>
+            <p className='text-base-100 bg-secondary px-3 py-4 rounded-2xl '>Latest</p>
             <Marquee  pauseOnHover ={true} className=''>
-            <p className='font-bold mt-4'>{allDetails}</p>
+            <p className='font-semibold '>{allDetails}</p>
             </Marquee>
         </div>
     );

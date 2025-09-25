@@ -5,7 +5,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 const RightAside = () => {
 const {bookmarkNews} = use(AuthContext);
-  console.log(bookmarkNews)
+//   console.log(bookmarkNews)
 
     return (
         <div>

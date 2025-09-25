@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   return (
-<div className="flex justify-between items-center w-full">
+<div className="flex justify-between items-center w-full  ">
   {/* Left: Logout message */}
   <div className="w-1/3">
     {logout && <p className="text-green-500">{logout}</p>}
@@ -52,7 +52,7 @@ const Navbar = () => {
     onClick={() => setIsPopupOpen(true)}
   >
     <img
-      className="w-15 h-15 rounded-full"
+      className="w-12 h-12 rounded-full"
       src={
         user?.photoURL ||
         "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="

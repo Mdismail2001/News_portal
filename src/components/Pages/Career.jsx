@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import Navbar from "../Navbar";
 
 const Career = () => {
   return (
-    <div className="w-11/12 mx-auto py-12 text-gray-800">
+    <div className="w-11/12 mx-auto pb-5 text-gray-800 ">
+      <Navbar ></Navbar>
       {/* Back Button */}
       <div className="mb-6">
         <Link

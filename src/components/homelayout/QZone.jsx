@@ -6,8 +6,6 @@ const QZone = () => {
     "/src/assets/swimming.png",
     "/src/assets/class.png",
     "/src/assets/playground.png",
-    "/src/assets/librari.jpeg",
-    "/src/assets/lab.webp",
   ];
 
   // Shuffle function (Fisher-Yates)
