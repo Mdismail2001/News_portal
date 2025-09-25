@@ -9,8 +9,9 @@ import Loading from '../Pages/Loading';
 
 const Home = () => {
    const news = useLoaderData();    
-
    const {state} = useNavigation();
+
+
     return (
         <div>
             <header><Header></Header>
@@ -25,7 +26,7 @@ const Home = () => {
                    {state =="loading" ? <Loading></Loading> : <Outlet></Outlet>} 
                  </section>
                  <aside className='col-span-3 sticky top-0 h-fit'>
-                    <RightAside></RightAside>
+                    <RightAside ></RightAside>
                 </aside>
             </main>
         </div>

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import {FaEye, FaStar, FaBookmark, FaShareAlt, FaThumbsUp, FaComment,} from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const NewsCard = ({ news }) => {
   const [expanded, setExpanded] = useState(false);
@@ -8,6 +9,7 @@ const NewsCard = ({ news }) => {
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [newComment, setNewComment] = useState("");
   const [commentsList, setCommentsList] = useState(news.comments || []);
+  const {bookmarkBtn} = use(AuthContext); // bookmark function come from authContext
 
   // Function to render rating stars
   const renderStars = (rating) => {
@@ -60,7 +62,7 @@ const NewsCard = ({ news }) => {
 
         {/* Bookmark & Share */}
         <div className="flex items-center gap-3 text-accent">
-          <FaBookmark className="cursor-pointer hover:text-black" />
+          <FaBookmark onClick={() => bookmarkBtn(news)} className="cursor-pointer hover:text-black" />
           <FaShareAlt className="cursor-pointer hover:text-black" />
         </div>
       </div>

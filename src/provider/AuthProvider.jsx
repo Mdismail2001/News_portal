@@ -10,6 +10,7 @@ export const AuthContext = createContext(); // create context
 const AuthProvider = ({children}) => {
     const [user,  setUser] = useState(null);
     const [loading, setLoading] = useState(true);   // for user loading
+    const [bookmarkNews, setBookmarkNews] = useState([]); // ✅ state for bookmarks
     // console.log( loading ,user)
 
     // register function with email and password
@@ -48,6 +49,13 @@ const AuthProvider = ({children}) => {
        return signOut(auth)
     }
 
+    // bookmark function
+    const bookmarkBtn =(news)=>{
+    // console.log(news);
+    setBookmarkNews((prev) => [...prev, news]); // ✅ push into state
+    };
+
+
     const authData ={
         user,
         setUser,
@@ -57,6 +65,8 @@ const AuthProvider = ({children}) => {
         loading,
         setLoading,
         updateUser,     // pass to register page for update user
+        bookmarkBtn,
+        bookmarkNews
     }
     return <AuthContext value={authData}>
         {children}
